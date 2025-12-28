@@ -76,6 +76,16 @@ h1{color:#b23b3b;}
 
 #message{margin-top:10px;font-size:1.2em;}
 #q-num{margin-bottom:10px;color:#666;}
+  
+#end-screen img{
+  max-width:200px;
+  margin:20px auto;
+  display:block;
+}
+#end-screen{
+  text-align:center;
+}
+
 </style>
 </head>
 
@@ -960,12 +970,20 @@ nEl.onclick=()=>{
   if(i<questions.length){
     render();
   }else{
-    sEl.textContent="🎉 Finished!";
-    oEl.innerHTML="";
-    qNum.textContent="";
-    mEl.textContent="Great job! Keep practicing particles 💪";
-    nEl.style.display="none";
-  }
+  qNum.textContent="";
+  nEl.style.display="none";
+
+  sEl.innerHTML = `
+    <div id="end-screen">
+      <img src="https://raw.githubusercontent.com/k58835032-notbot/lesson-9-morae/main/cool%20cute%20cat.gif" alt="Cute cat">
+      <h2>🎉 You did it! </h2>
+    </div>
+  `;
+
+  oEl.innerHTML = "";
+  mEl.textContent = "Great job! Keep practicing particles 💪";
+}
+
 };
 
 render();
